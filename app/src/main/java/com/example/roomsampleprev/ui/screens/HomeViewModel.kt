@@ -7,21 +7,21 @@ import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import com.example.roomsampleprev.MyFriendsApplication
-import com.example.roomsampleprev.data.MyFriends
+import com.example.roomsampleprev.data.MyFriend
 import com.example.roomsampleprev.data.MyFriendsRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
 
 class HomeViewModel (private val myFriendsRepository: MyFriendsRepository): ViewModel() {
-    fun getAll(): Flow<List<MyFriends>>
+    fun getAll(): Flow<List<MyFriend>>
     = myFriendsRepository.getAll()
 
     fun insertFriend(friendName: String)
     = viewModelScope.launch {
-        myFriendsRepository.insertFriend(MyFriends(name = friendName))
+        myFriendsRepository.insertFriend(MyFriend(name = friendName))
     }
 
-    fun deleteAllMyFriends(allMyFriends: List<MyFriends>)
+    fun deleteAllMyFriends(allMyFriends: List<MyFriend>)
     = viewModelScope.launch {
         myFriendsRepository.deleteAllMyFriends(allMyFriends)
     }

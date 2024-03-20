@@ -9,11 +9,11 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface MyFriendsDao {
     @Query("SELECT * FROM sample")
-    fun getAll(): Flow<List<MyFriends>>
+    fun getAll(): Flow<List<MyFriend>>
 
     @Insert
-    suspend fun insertFriend(myFriends: MyFriends)
+    suspend fun insertFriend(myFriend: MyFriend)
 
     @Delete
-    suspend fun deleteAllMyFriends(allMyFriends: List<MyFriends>)
+    suspend fun deleteAllMyFriends(allMyFriends: List<MyFriend>)
 }
